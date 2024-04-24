@@ -13,9 +13,10 @@ options {
 	
 	# Permit RFC1918 PTR lookups to be recursed upstream
 	empty-zones-enable no;
-		response-policy { zone "rpz"; };
+		response-policy { zone "rpz"; } qname-wait-recurse no;
 		rrset-order { order cyclic; };
         #ENABLE_UPSTREAM_DNS#forwarders { dns_ip; };
+        forward only;
 };
 
 logging {
